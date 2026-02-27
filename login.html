@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Login - CEC ScholarHub</title>
+<style>
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #f2e6ff;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+.login-box {
+    background: #d9b3ff;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    width: 350px;
+    text-align: center;
+}
+
+.login-box h2 {
+    margin-bottom: 20px;
+    color: #4b3f72;
+}
+
+.login-box input {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 8px;
+    border: 1px solid #b299e6;
+}
+
+.login-box button {
+    width: 95%;
+    padding: 10px;
+    margin-top: 15px;
+    background: #6a3eb1;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.login-box button:hover {
+    background: #9b66cc;
+}
+</style>
+</head>
+<body>
+
+<div class="login-box">
+    <h2>Admin Login</h2>
+    <input type="text" id="username" placeholder="Username">
+    <input type="password" id="password" placeholder="Password">
+    <button onclick="login()">Login</button>
+</div>
+
+<script>
+// Hardcoded admin credentials
+const adminUser = {
+    username: "klaredesteenmontefalco@admin",
+    password: "8521479630"
+};
+
+function login() {
+    const username = document.getElementById("username").value.trim();
+    const password = document.getElementById("password").value.trim();
+
+    if(username === adminUser.username && password === adminUser.password){
+        // Save login status in localStorage
+        localStorage.setItem("adminLoggedIn", "true");
+        // Redirect to admin dashboard
+        window.location.href = "index.html";
+    } else {
+        alert("Invalid username or password!");
+    }
+}
+</script>
+
+</body>
+</html>
